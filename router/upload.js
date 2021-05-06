@@ -35,10 +35,11 @@ try {
   );
 } catch (err) {}
 
-var upload = multer({
+const upload = multer({
   limits: { fileSize: 125000 },
   storage: multerS3({
     s3: s3,
+    acl: "public-read",
     bucket: "38e227e6-4956-480f-8bc7-655a34ca0e28",
     key: function (req, file, cb) {
       // Set the filetypes
