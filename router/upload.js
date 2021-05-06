@@ -41,6 +41,7 @@ const upload = multer({
     s3: s3,
     acl: "public-read",
     bucket: "38e227e6-4956-480f-8bc7-655a34ca0e28",
+    contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function (req, file, cb) {
       // Set the filetypes
       var filetypes = /jpeg|jpg|png/;
