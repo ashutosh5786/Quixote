@@ -17,7 +17,7 @@ var credentials = new AWS.SharedIniFileCredentials({ profile: "default" });
 AWS.config.credentials = credentials;
 
 // Create unique bucket name
-// const bucketName = uuid.v4();
+var filenames = "";
 
 try {
   s3.createBucket(
@@ -49,6 +49,7 @@ const upload = multer({
       var extname = filetypes.test(
         path.extname(file.originalname).toLowerCase()
       );
+      filenames = file.originalname;
 
       if (mimetype && extname) {
         return cb(null, file.originalname);
@@ -62,7 +63,7 @@ const upload = multer({
 router.post("/api/upload", (req, res) => {
   upload(req, res, (err) => {
     if (err) res.send("File must be photo(png/jpg/jpeg) and less than 1MB");
-    else res.render("upload");
+    else res.render("upload", { data: filenames });
   });
 });
 

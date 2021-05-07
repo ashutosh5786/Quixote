@@ -9,5 +9,21 @@
   <body>
     <H1>File Uploaded Succefully</H1>
     <h3>Here is the URL for Access</h3>
+    <table border="1">
+      <tr>
+        <th>Name</th>
+        <th>URL</th>
+      </tr>
+      <tr>
+        <% if(data!=0) { %>
+        <td><%= data ;%></td>
+        <td>
+          https://38e227e6-4956-480f-8bc7-655a34ca0e28.s3.ap-south-1.amazonaws.com/<%data;%>
+        </td>
+        <% } else { %>
+        <td>No Upload</td>
+        <% } %>
+      </tr>
+    </table>
   </body>
 </html>
