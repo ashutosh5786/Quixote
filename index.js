@@ -10,4 +10,4 @@ app.set("view engine", "ejs");
 app.use("/", routes);
 
 //
-app.listen(8080);
+app.listen(80);
