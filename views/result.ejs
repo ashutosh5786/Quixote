@@ -7,34 +7,36 @@
     <title>Results</title>
   </head>
   <body>
-    <H1>Hi There, Here are the Uploaded Files</H1>
-    <table border="1">
-      <tr>
-        <th>S.No</th>
-        <th>Name</th>
-        <th>Size(Bytes)</th>
-        <th>Last Modified</th>
-        <th>Storage Class</th>
-        <th>URL</th>
-      </tr>
-      <% if(files!=0) { for(var i=0; i < files.KeyCount; i++){ %>
+    <center>
+      <H1>Hi There, Here are the Uploaded Files</H1>
+      <table border="1">
+        <tr>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Size(Bytes)</th>
+          <th>Last Modified</th>
+          <th>Storage Class</th>
+          <th>URL</th>
+        </tr>
+        <% if(files!=0) { for(var i=0; i < files.KeyCount; i++){ %>
 
-      <tr>
-        <td><%=i;%></td>
-        <td><%=files.Contents[i].Key;%></td>
-        <td><%=files.Contents[i].Size;%></td>
-        <td><%=files.Contents[i].LastModified;%></td>
-        <td><%=files.Contents[i].StorageClass;%></td>
-        <td>
-          https://38e227e6-4956-480f-8bc7-655a34ca0e28.s3.ap-south-1.amazonaws.com/<%=files.Contents[i].Key;%>
-        </td>
-      </tr>
+        <tr>
+          <td><%=i;%></td>
+          <td><%=files.Contents[i].Key;%></td>
+          <td><%=files.Contents[i].Size;%></td>
+          <td><%=files.Contents[i].LastModified;%></td>
+          <td><%=files.Contents[i].StorageClass;%></td>
+          <td>
+            https://38e227e6-4956-480f-8bc7-655a34ca0e28.s3.ap-south-1.amazonaws.com/<%=files.Contents[i].Key;%>
+          </td>
+        </tr>
 
-      <%} %> <% } else { %>
-      <tr>
-        <td colspan="4">No Files Uploaded</td>
-      </tr>
-      <% } %>
-    </table>
+        <%} %> <% } else { %>
+        <tr>
+          <td colspan="4">No Files Uploaded</td>
+        </tr>
+        <% } %>
+      </table>
+    </center>
   </body>
 </html>
