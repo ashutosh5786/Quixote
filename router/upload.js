@@ -44,7 +44,7 @@ const upload = multer({
     contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function (req, file, cb) {
       // Set the filetypes
-      var filetypes = /jpeg|jpg|png/;
+      var filetypes = /jpeg|png/;
       var mimetype = filetypes.test(file.mimetype);
       var extname = filetypes.test(
         path.extname(file.originalname).toLowerCase()
@@ -62,7 +62,7 @@ const upload = multer({
 router.post("/api/upload", (req, res) => {
   upload(req, res, (err) => {
     if (err) res.send("File must be photo(png/jpg/jpeg) and less than 1MB");
-    else res.send("Uploaded");
+    else res.render("upload");
   });
 });
 
