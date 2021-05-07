@@ -12,15 +12,20 @@
       <tr>
         <th>S.No</th>
         <th>Name</th>
-        <th>Size</th>
+        <th>Size(Bytes)</th>
         <th>Last Modified</th>
         <th>Storage Class</th>
+        <th>URL</th>
       </tr>
       <% if(files!=0) { for(var i=0; i < files.KeyCount; i++){ %>
       <tr>
         <td><%=i;%></td>
         <td><%=files.Contents[i].Key;%></td>
+        <td><%=files.Contents[i].Size;%></td>
+        <td><%=files.Contents[i].LastModified;%></td>
+        <td><%=files.Contents[i].StorageClass;%></td>
       </tr>
+
       <%} %> <% } else { %>
       <tr>
         <td colspan="4">No Files Uploaded</td>
