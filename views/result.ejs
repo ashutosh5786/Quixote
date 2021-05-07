@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
+  </head>
+  <body>
+    <H1>Hi There, Here are the Uploaded Files</H1>
+    <table border="1">
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Last Modified</th>
+        <th>Storage Class</th>
+      </tr>
+      <% if(files!=0) { for(var i=0; i < files.KeyCount; i++){ %>
+      <tr>
+        <td><%=i;%></td>
+        <td><%=files.Contents[i].Key;%></td>
+      </tr>
+      <%} %> <% } else { %>
+      <tr>
+        <td colspan="4">No Files Uploaded</td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>

@@ -13,14 +13,15 @@ var credentials = new AWS.SharedIniFileCredentials({ profile: "default" });
 AWS.config.credentials = credentials;
 
 // Getting the form request
-router.post("/api/getAll", (res, req) => {
+router.post("/api/getAll", (req, res) => {
   s3.listObjectsV2(
     { Bucket: "38e227e6-4956-480f-8bc7-655a34ca0e28" },
     (err, obj) => {
       if (err) console.log(err);
-      else console.log(data);
+      else res.render("result", { files: obj });
     }
   );
+  // res.render("result");
 });
 //exorting the routes
 module.exports = router;
